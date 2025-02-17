@@ -9,9 +9,11 @@ func _ready() -> void:
 	
 	gerarX = randi_range(min,max)
 	gerarY = randi_range(min,max)
-
+	var resSum = gerarX+gerarY
 	print("Quanto é ",str(gerarX),"+",str(gerarY)," ?")
+	print(resSum)
 	get_node("LblText").set_text("Quanto é "+str(gerarX)+"+"+str(gerarY)+" ?")
+	
 	pass 
 	
 func _process(_delta: float) -> void:
