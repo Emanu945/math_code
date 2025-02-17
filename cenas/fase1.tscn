@@ -1,0 +1,90 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckwkift6tgeil"]
+
+[ext_resource type="Texture2D" uid="uid://b8y46ntsxwysu" path="res://sprites/istockphoto-1182467056-612x612.jpg" id="1_uim5c"]
+[ext_resource type="Script" path="res://scripts/panel.gd" id="2_7dest"]
+[ext_resource type="Texture2D" uid="uid://c7rkh57s5x1aa" path="res://sprites/player.png" id="2_tjv43"]
+[ext_resource type="Texture2D" uid="uid://b1xf8qpv6lsj1" path="res://sprites/enemy.png" id="3_iyfum"]
+[ext_resource type="Script" path="res://scripts/lbl_text.gd" id="3_yc0ta"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnm4c"]
+size = Vector2(64.5, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ykf4"]
+size = Vector2(65, 58)
+
+[node name="cena" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(306, 191)
+texture = ExtResource("1_uim5c")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 197.0
+offset_top = 38.0
+offset_right = 403.0
+offset_bottom = 232.0
+script = ExtResource("2_7dest")
+
+[node name="LblText" type="Label" parent="Panel"]
+offset_left = 52.0
+offset_top = 6.0
+offset_right = 162.0
+offset_bottom = 29.0
+text = "Teste de texto"
+script = ExtResource("3_yc0ta")
+
+[node name="Q1" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 38.0
+offset_right = 176.0
+offset_bottom = 69.0
+text = "Q1"
+
+[node name="Q2" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 73.0
+offset_right = 177.0
+offset_bottom = 104.0
+text = "Q2"
+
+[node name="Q3" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 108.0
+offset_right = 177.0
+offset_bottom = 139.0
+text = "Q3"
+
+[node name="Q4" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 142.0
+offset_right = 177.0
+offset_bottom = 173.0
+text = "Q4"
+
+[node name="PlayerShape" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerShape"]
+position = Vector2(93.75, 292)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jnm4c")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerShape"]
+position = Vector2(84, 277)
+scale = Vector2(2.65625, 2.6875)
+texture = ExtResource("2_tjv43")
+
+[node name="EnemyShape" type="StaticBody2D" parent="."]
+position = Vector2(276, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="EnemyShape"]
+position = Vector2(217, 264.5)
+scale = Vector2(2.625, 2.78125)
+texture = ExtResource("3_iyfum")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyShape"]
+position = Vector2(208, 280)
+shape = SubResource("RectangleShape2D_0ykf4")
